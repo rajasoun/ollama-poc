@@ -1,4 +1,6 @@
+import os
 import asyncio
+import platform 
 from ollama import AsyncClient
 from prompt_toolkit import PromptSession
 from prompt_toolkit.styles import Style
@@ -10,6 +12,14 @@ class ChatClient:
         self.session = PromptSession(style=self.style)
         self.client = AsyncClient()
         self.first_run = True
+
+    def clear(self):
+        """Clears the console screen."""
+        # Check if the operating system is Windows
+        if platform.system() == "Windows":
+            os.system('cls')
+        else:
+            os.system('clear')
 
     async def start(self):
         if self.first_run:
