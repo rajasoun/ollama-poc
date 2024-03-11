@@ -1,0 +1,4 @@
+gh
+python3
+pipx
+pre-commit

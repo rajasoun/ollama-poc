@@ -177,7 +177,5 @@ pyrightconfig.json
 
 poetry.lock
 .env
-embeddings/*
-!embeddings/.gitkeep
-processing_records.json
-src-all/combined_script.py
+!scripts/lib
+!scripts/lib/*
