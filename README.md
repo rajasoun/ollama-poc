@@ -92,10 +92,3 @@ Please adhere to the project's coding standards and guidelines.
 ## License
 
 This project is open-sourced under the MIT License. See the [LICENSE](LICENSE) file for more details.
-```
-
-### Notes:
-
-- **GitHub URL**: Replace `https://github.com/yourusername/async-chat-client-ollama.git` with the actual URL to your GitHub repository.
-- **Customization**: Adjust any instructions or descriptions to fit your project's specific requirements or setup.
-- **Additional Setup Instructions**: If your project has additional setup requirements or steps, be sure to include those in the appropriate sections of the `README.md`.
