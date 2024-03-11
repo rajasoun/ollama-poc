@@ -30,6 +30,6 @@ lint: ## Go Lint
 test:  ## Test Go
 	go test ./...
 
-test-cover: ## Go Coverage
+cover: ## Go Coverage
 	go test ./... --cover -coverprofile coverage/coverage.out
 	go tool cover -html=coverage/coverage.out
