@@ -1,0 +1,54 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+    enable-all: true
+  revive:
+    rules:
+      - name: var-naming
+      - name: exported
+      - name: package-comments
+      - name: range
+      - name: indent-error-flow
+      - name: errorf
+
+issues:
+  exclude-rules:
+    - linters:
+        - depguard
+      text: "import 'github.com/tmc/langchaingo/llms' is not allowed from list 'Main'"
+    - linters:
+        - depguard
+      text: "import 'github.com/tmc/langchaingo/llms/ollama' is not allowed from list 'Main'"
+    - linters:
+        - forbidigo
+      text: "use of `fmt.Print` forbidden by pattern `^(fmt\\.Print(|f|ln)|print|println)$`"
+    - linters:
+        - wsl
+      text: "only one cuddle assignment allowed before if statement"
+    - linters:
+        - wsl
+      text: "assignments should only be cuddled with other assignments"
+    - linters:
+        - nlreturn
+      text: "return with no blank line before"
+    - linters:
+        - gomnd
+      text: "Magic number: 0.8, in <argument> detected"
+
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - revive
+    - unused
+    - exhaustruct
+    - exportloopref
+    - gofumpt
+    - goimports
+    - gomnd
+    - gosec
+    - staticcheck
+    - typecheck
+
+run:
+  timeout: 5m
