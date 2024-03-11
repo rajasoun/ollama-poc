@@ -1,9 +1,11 @@
+# ChatClient class for the Asynchronous Chat Client
 import os
-import platform 
+import platform
 from ollama import AsyncClient
 from prompt_toolkit import PromptSession
 from prompt_toolkit.styles import Style
 from prompt_toolkit.formatted_text import HTML
+
 
 class ChatClient:
     """
@@ -15,7 +17,11 @@ class ChatClient:
         """
         Initializes the ChatClient with a styled prompt session and the Ollama AsyncClient.
         """
-        self.style = Style.from_dict({'question': 'ansigreen',})
+        self.style = Style.from_dict(
+            {
+                "question": "ansigreen",
+            }
+        )
         self.session = PromptSession(style=self.style)
         self.client = AsyncClient()
         self.first_run = True
@@ -26,9 +32,9 @@ class ChatClient:
         """
         # Check if the operating system is Windows
         if platform.system() == "Windows":
-            os.system('cls')
+            os.system("cls")
         else:
-            os.system('clear')
+            os.system("clear")
 
     async def start(self):
         """
@@ -41,7 +47,7 @@ class ChatClient:
             print("\n\n")
 
         user_input = await self.prompt_user()
-        if user_input.lower() == 'exit':
+        if user_input.lower() == "exit":
             print("Exiting chat... Thank you for using the chat client.\n")
             return False  # Indicates the session should end
 
@@ -62,7 +68,9 @@ class ChatClient:
         Asynchronously prompts the user for input using a styled prompt.
         Returns the string input by the user.
         """
-        return await self.session.prompt_async(HTML('<ansigreen>Ask a question: </ansigreen>'))
+        return await self.session.prompt_async(
+            HTML("<ansigreen>Ask a question: </ansigreen>")
+        )
 
     async def process_user_input(self, user_input):
         """
@@ -70,9 +78,13 @@ class ChatClient:
         Prints the response to the terminal.
         Handles any exceptions that occur during communication with the chat model.
         """
-        message = {'role': 'user', 'content': user_input}
+        message = {"role": "user", "content": user_input}
         try:
-            async for part in await self.client.chat(model='llama2', messages=[message], stream=True):
-                print(part['message']['content'], end='', flush=True)
+            async for part in await self.client.chat(
+                model="llama2", messages=[message], stream=True
+            ):
+                print(part["message"]["content"], end="", flush=True)
         except Exception as e:
-            print(f"\nAn error occurred during the chat session: {e}\nPlease try asking something else.")
+            print(
+                f"\nAn error occurred during the chat session: {e}\nPlease try asking something else."
+            )
