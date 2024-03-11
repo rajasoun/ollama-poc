@@ -179,3 +179,4 @@ poetry.lock
 .env
 !scripts/lib
 !scripts/lib/*
+coverage/coverage.out
