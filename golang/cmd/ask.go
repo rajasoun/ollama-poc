@@ -14,7 +14,9 @@ import (
 // outputWriter is used as the default output, which can be overridden for testing.
 var outputWriter io.Writer = os.Stdout
 
-var prompt wrapper.Prompt = wrapper.ConsolePrompt{} // Use the ConsolePrompt by default
+var prompt wrapper.Prompt = wrapper.ConsolePrompt{
+	Runner: wrapper.RealPromptRunner{},
+}
 
 // Update the Run function of your Cobra command to use the outputWriter.
 var askCmd = &cobra.Command{
