@@ -1,4 +1,4 @@
-package input
+package wrapper
 
 import (
 	"fmt"
@@ -6,8 +6,16 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
+// Prompt defines the interface for getting user input
+type Prompt interface {
+	GetUserQuestion() (string, error)
+}
+
+// ConsolePrompt is a struct that implements the Prompt interface
+type ConsolePrompt struct{}
+
 // GetUserQuestion prompts the user to enter a question and returns it.
-func GetUserQuestion() (string, error) {
+func (cp ConsolePrompt) GetUserQuestion() (string, error) {
 	prompt := promptui.Prompt{
 		Label: "What is your question",
 	}
