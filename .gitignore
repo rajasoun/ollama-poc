@@ -180,3 +180,4 @@ poetry.lock
 !scripts/lib
 !scripts/lib/*
 golang/coverage/*.out
+golang/bin/*
