@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "ollama-poc"
+name = "llm-poc"
 version = "0.1.0"
-description = "ollama tool to run llm on local machine"
+description = "llm client wrapper"
 authors = ["Raja Soundaramourty <rajasoun@icloud.com>"]
 readme = "README.md"
-packages = [{include = "ollama_poc"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
